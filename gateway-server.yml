@@ -1,41 +1,62 @@
-# Eureka Config
-eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
-# Gateway Config
-spring.cloud.gateway.discovery.locator.enabled=true
-spring.cloud.gateway.routes[0].id=administration
-spring.cloud.gateway.routes[0].uri=http://localhost:9091
-spring.cloud.gateway.routes[0].predicates[0]=Path=/api/administration/**
-spring.cloud.gateway.routes[1].id=appoitment
-spring.cloud.gateway.routes[1].uri=http://localhost:9092
-spring.cloud.gateway.routes[1].predicates[0]=Path=/api/appoitment/**
-spring.cloud.gateway.routes[2].id=client
-spring.cloud.gateway.routes[2].uri=http://localhost:9093
-spring.cloud.gateway.routes[2].predicates[0]=Path=/api/client/**
-spring.cloud.gateway.routes[3].id=store-management
-spring.cloud.gateway.routes[3].uri=http://localhost:9094
-spring.cloud.gateway.routes[3].predicates[0]=Path=/api/store-management/**
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: administration
+          uri: http://localhost:9091
+          predicates:
+            - Path=/api/administration/**
+        - id: appoitment
+          uri: http://localhost:9092
+          predicates:
+            - Path=/api/appoitment/**
+        - id: client
+          uri: http://localhost:9093
+          predicates:
+            - Path=/api/client/**
+        - id: store-management
+          uri: http://localhost:9094
+          predicates:
+            - Path=/api/store-management/**
+  security:
+    domain: https://dev-9pn-820c.us.auth0.com
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: ikWPpY8zw0AkwBUhsKj6rRyqdX2m7Isi
+            client-secret: KPrWBYxz754nn-4pJKUnU8DZnmGpPoU-0dCpQg_fr2ysq0AbIw-9NLxoO4cTec-W
+            redirect-uri: "{baseUrl}/webjars/swagger-ui/4.15.5/index.html"
+            authorization-grant-type: authorization_code
+            scope: openid, profile, email
+        provider:
+          auth0:
+            authorization-uri: ${spring.security.domain}/authorize
+            token-uri: ${spring.security.domain}/oauth/token
+            user-info-uri: ${spring.security.domain}/userinfo
+            jwk-set-uri: ${spring.security.domain}/.well-known/jwks.json
+            user-name-attribute: sub
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${spring.security.domain}/.well-known/jwks.json
 
-# Security Config
-spring.security.domain=https://dev-9pn-820c.us.auth0.com
-spring.security.oauth2.client.registration.auth0.client-id=ikWPpY8zw0AkwBUhsKj6rRyqdX2m7Isi
-spring.security.oauth2.client.registration.auth0.client-secret=KPrWBYxz754nn-4pJKUnU8DZnmGpPoU-0dCpQg_fr2ysq0AbIw-9NLxoO4cTec-W
-spring.security.oauth2.client.registration.auth0.redirect-uri={baseUrl}/webjars/swagger-ui/4.15.5/index.html
-spring.security.oauth2.client.registration.auth0.authorization-grant-type=authorization_code
-spring.security.oauth2.client.registration.auth0.scope=openid, profile, email
-spring.security.oauth2.client.provider.auth0.authorization-uri=${spring.security.domain}/authorize
-spring.security.oauth2.client.provider.auth0.token-uri=${spring.security.domain}/oauth/token
-spring.security.oauth2.client.provider.auth0.user-info-uri=${spring.security.domain}/userinfo
-spring.security.oauth2.client.provider.auth0.jwk-set-uri=${spring.security.domain}/.well-known/jwks.json
-spring.security.oauth2.client.provider.auth0.user-name-attribute=sub
-spring.security.oauth2.resourceserver.jwt.jwk-set-uri=${spring.security.domain}/.well-known/jwks.json
-
-# Springdoc Config
-springdoc.enable-native-support=true
-springdoc.api-docs.enabled=true
-springdoc.swagger-ui.enabled=true
-springdoc.swagger-ui.path=/swagger-ui.html
-springdoc.swagger-ui.config-url=/v3/api-docs/swagger-config
-springdoc.swagger-ui.urls[0].url=/v3/api-docs
-springdoc.swagger-ui.urls[0].name=API Gateway Service
-springdoc.swagger-ui.urls[0].primaryName=API Gateway Service
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Gateway Service
+        primaryName: API Gateway Service
