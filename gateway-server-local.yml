@@ -1,3 +1,4 @@
+environment: local
 eureka:
   client:
     service-url:
