@@ -1,1 +1,6 @@
 # Project properties
+info:
+  app:
+    name: Client Microservice
+    description: Application to create and get Clients
+    version: 1.0
