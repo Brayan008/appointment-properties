@@ -9,6 +9,8 @@ springdoc:
 eureka:
   instance:
     instance-id: "${spring.application.name}:${random.value}"
+    health-check-url-path: /actuator/health
+    leaseRenewalIntervalInSeconds: 10
   client:
     healthcheck:
       enabled: true

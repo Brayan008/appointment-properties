@@ -1,0 +1,6 @@
+# Project properties
+info:
+  app:
+    name: Owner Microservice
+    description: Application to Gestión de empresas/sucursales, Catálogo de servicios, Membresías y Asignación de empleados y dueños adicionales.
+    version: 1.0

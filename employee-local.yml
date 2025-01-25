@@ -1,0 +1,6 @@
+# Project properties
+info:
+  app:
+    name: Employee Microservice
+    description: Application to create and get
+    version: 1.0
