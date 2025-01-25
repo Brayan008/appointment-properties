@@ -1,6 +1,0 @@
-# Project properties
-info:
-  app:
-    name: Administration Microservice
-    description: Application to create and get Administration
-    version: 1.0

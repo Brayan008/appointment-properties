@@ -1,0 +1,6 @@
+# Project properties
+info:
+  app:
+    name: Authentication Microservice
+    description: Application to Registro/Autenticación, Gestión de roles y Status
+    version: 1.0
