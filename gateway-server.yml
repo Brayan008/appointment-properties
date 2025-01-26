@@ -10,7 +10,7 @@ spring:
           enabled: true
       routes:
         - id: auth
-          uri: http://localhost:9091
+          uri: lb://auth
           predicates:
             - Path=/api/auth/**
         - id: owner
@@ -37,6 +37,6 @@ springdoc:
       - url: /v3/api-docs
         name: API Gateway Service
         primaryName: API Gateway Service
-      - url: /auth/v3/api-docs
+      - url: /v3/api-docs/auth
         name: Auth
         primaryName: Auth endpoints
