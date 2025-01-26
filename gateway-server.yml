@@ -32,11 +32,11 @@ springdoc:
     path: /swagger-ui.html
     config-url: /v3/api-docs/swagger-config
     urls:
-      - url: /v3/api-docs/auth
+      - url: /api/auth/v3/api-docs
         name: Auth Service
-      - url: /v3/api-docs/owner
+      - url: /api/owner/v3/api-docs
         name: Owner Service
-      - url: /v3/api-docs/client
+      - url: /api/client/v3/api-docs
         name: Client Service
-      - url: /v3/api-docs/employee
+      - url: /api/employee/v3/api-docs
         name: Employee Service
