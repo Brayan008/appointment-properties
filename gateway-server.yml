@@ -14,29 +14,29 @@ spring:
           predicates:
             - Path=/api/auth/**
         - id: owner
-          uri: http://localhost:9092
+          uri: lb://owner
           predicates:
             - Path=/api/owner/**
         - id: client
-          uri: http://localhost:9093
+          uri: lb://client
           predicates:
             - Path=/api/client/**
         - id: employee
-          uri: http://localhost:9094
+          uri: lb://employee
           predicates:
             - Path=/api/employee/**
 springdoc:
-  enable-native-support: true
   api-docs:
-    enabled: true
+    path: /v3/api-docs
   swagger-ui:
-    enabled: true
     path: /swagger-ui.html
     config-url: /v3/api-docs/swagger-config
     urls:
-      - url: /v3/api-docs
-        name: API Gateway Service
-        primaryName: API Gateway Service
       - url: /v3/api-docs/auth
-        name: Auth
-        primaryName: Auth endpoints
+        name: Auth Service
+      - url: /v3/api-docs/owner
+        name: Owner Service
+      - url: /v3/api-docs/client
+        name: Client Service
+      - url: /v3/api-docs/employee
+        name: Employee Service
