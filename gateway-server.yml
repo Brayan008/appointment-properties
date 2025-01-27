@@ -11,7 +11,7 @@ spring:
         - id: auth
           uri: lb://auth
           predicates:
-            - Path=/api/auth/**, /auth-service/v3/api-docs
+            - Path=/api/auth/**, /v3/api-docs
         - id: owner
           uri: lb://owner
           predicates:
@@ -35,7 +35,7 @@ springdoc:
     urls:
       - url: /v3/api-docs
         name: API Gateway Service
-      - url: /auth-service/v3/api-docs
+      - url: /api/auth/v3/api-docs
         name: Auth Service
       - url: /api/owner/v3/api-docs
         name: Owner Service
