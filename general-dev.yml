@@ -33,13 +33,6 @@ logging:
       baeldung:
         testloglevel: DEBUG
 
-spring:
-  jpa:
-    properties:
-      hibernate:
-        format_sql: true
-        use_sql_comments: true
-
 management:
   endpoints:
     web:
