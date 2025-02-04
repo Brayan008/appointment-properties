@@ -27,6 +27,9 @@ spring:
             - Path=/api/employee/**
 springdoc:
   swagger-ui:
+    oauth:
+      client-id: ikWPpY8zw0AkwBUhsKj6rRyqdX2m7Isi
+      client-secret: KPrWBYxz754nn-4pJKUnU8DZnmGpPoU-0dCpQg_fr2ysq0AbIw-9NLxoO4cTec-W
     enabled: true
     path: /swagger-ui.html
     config-url: /v3/api-docs/swagger-config
