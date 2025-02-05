@@ -4,3 +4,14 @@ info:
     name: Authentication Microservice
     description: Application to Registro/Autenticación, Gestión de roles y Status
     version: 1.0
+spring:
+  security:
+    auth0:
+      domain: https://dev-9pn-820c.us.auth0.com
+      client-id: ikWPpY8zw0AkwBUhsKj6rRyqdX2m7Isi
+      client-secret: KPrWBYxz754nn-4pJKUnU8DZnmGpPoU-0dCpQg_fr2ysq0AbIw-9NLxoO4cTec-W
+      security-key: HGJDFd_2asd21ds-dsa2sa
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/my-appointments
+    username: postgres
+    password: pass123
